@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
-VISTA HISTORIAL
+-- VISTA HISTORIAL
 ----------------------------------------------------------------------
 
 
@@ -20,10 +20,10 @@ LEFT JOIN
     dbo.Tecnicos te ON t.TecnicoID = te.TecnicoID;
 
 ----------------------------------------------------------------------
-VISTA REPORTES
+-- VISTA REPORTES
 ----------------------------------------------------------------------
 
-CREATE VIEW dbo.reportes AS
+CREATE OR ALTER VIEW dbo.reportes AS
 SELECT 
     t.TicketID,
     t.FechaCreacion,

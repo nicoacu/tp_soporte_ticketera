@@ -1,4 +1,4 @@
-INSERT INTO soporte_ticketera_2.dbo.Clientes (Nombre, Direccion, Telefono, Email, FechaRegistro)
+INSERT INTO soporte_ticketera.dbo.Clientes (Nombre, Direccion, Telefono, Email, FechaRegistro)
 VALUES 
 ('Mal Coade', '4867 Gulseth Way', '342 786 6691', 'mcoade0@prweb.com', '2/16/2024'),
 ('Michaela Duke', '5 Vahlen Center', '50	7 246 4693', 'mduke1@imdb.com', '11/25/2023'),

@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------
-STORED PROCEDURE PARA ACTUALIZACION DE TICKET
+-- STORED PROCEDURE PARA ACTUALIZACION DE TICKET
 ---------------------------------------------------------------------------
 
 CREATE PROCEDURE sp_actualizar_estado_ticket
@@ -45,7 +45,7 @@ BEGIN
 END;
 
 ---------------------------------------------------------------------------
-STORED PROCEDURE PARA CREACION DE TICKET
+-- STORED PROCEDURE PARA CREACION DE TICKET
 ---------------------------------------------------------------------------
 
 
@@ -100,4 +100,47 @@ BEGIN
 
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH
+END;
+
+--- Cliente
+
+CREATE PROCEDURE sp_CreateEndUser
+    @Nombre VARCHAR(255),
+    @Direccion VARCHAR(255),
+    @Telefono VARCHAR(50),
+    @Email VARCHAR(255)
+AS
+BEGIN
+    -- Validate mandatory fields
+    IF (@Nombre IS NULL OR @Direccion IS NULL OR @Telefono IS NULL OR @Email IS NULL)
+    BEGIN
+        RAISERROR ('All fields are required to create an end-user.', 16, 1);
+        RETURN;
+    END
+
+    INSERT INTO dbo.Clientes (Nombre, Direccion, Telefono, Email, FechaRegistro)
+    VALUES (@Nombre, @Direccion, @Telefono, @Email, GETDATE());
+
+    PRINT 'End-user created successfully.';
+END;
+
+--- Tecnico
+
+CREATE PROCEDURE sp_CreateTechnician
+    @Nombre VARCHAR(255),
+    @Especialidad VARCHAR(100),
+    @Disponibilidad BIT
+AS
+BEGIN
+    -- Validate mandatory fields
+    IF (@Nombre IS NULL OR @Disponibilidad IS NULL)
+    BEGIN
+        RAISERROR ('Name and availability are required to create a technician.', 16, 1);
+        RETURN;
+    END
+
+    INSERT INTO dbo.Tecnicos (Nombre, Especialidad, Disponibilidad)
+    VALUES (@Nombre, @Especialidad, @Disponibilidad);
+
+    PRINT 'Technician created successfully.';
 END;

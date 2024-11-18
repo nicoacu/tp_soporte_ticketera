@@ -1,6 +1,6 @@
-CREATE DATABASE soporte_ticketera_2;
+CREATE DATABASE soporte_ticketera;
 
-USE soporte_ticketera_2;
+USE soporte_ticketera;
 
 CREATE TABLE dbo.Clientes (
     ClienteID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,  

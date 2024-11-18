@@ -1,4 +1,4 @@
-INSERT INTO soporte_ticketera_2.dbo.Tecnicos (Nombre, Especialidad, Disponibilidad)
+INSERT INTO soporte_ticketera.dbo.Tecnicos (Nombre, Especialidad, Disponibilidad)
 VALUES 
 ('Laura Hernandez', 'IT Support Administrator', 0),
 ('Amanda Garcia', 'IT Helpdesk Support', 1),
