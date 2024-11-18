@@ -61,10 +61,10 @@ Antes de la ejecución de cada script, es necesario constatar la conexión a la 
 
 `6-Creacion_Stored_Procedures.sql` : Queries para que programaticamente se ejecuten acciones prediseñadas sobre la base utilizando el codigo del negocio. En este caso, se contemplaron la generación de Stored Procedures para las siguientes funcionalidades:
 
-1- Creacion Ticket.
-2- Actualizacion Ticket.
-3- Creacion Cliente.
-4- Creacion Técnico.
+- 1- Creacion Ticket.
+- 2- Actualizacion Ticket.
+- 3- Creacion Cliente.
+- 4- Creacion Técnico.
 
 `7-Creacion_Vistas.sql` : Vistas para ejecutar consultas prediseñadas y optimizar el uso de recursos. Esto no se ejecuta a traves de un store procedure porque al hacer consultas no queremos exponenciar el tamaño de la base y consumir recursos.
 
