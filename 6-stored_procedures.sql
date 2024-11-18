@@ -102,7 +102,7 @@ BEGIN
     END CATCH
 END;
 
---- Cliente
+--- Cliente creacion
 
 CREATE PROCEDURE sp_CreateEndUser
     @Nombre VARCHAR(255),
