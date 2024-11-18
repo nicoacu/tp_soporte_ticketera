@@ -31,8 +31,8 @@
 
 # Guía de Referencia del Repositorio:
 
-### Introduccion:
-Este repositorio utilizado para el trabajo práctico cuenta con 9 archivos de consulta `.sql`. Se le ha asignado a cada uno un número en el nombre para señalizar el orden de ejcución de los mismos:
+### Introducción:
+Este repositorio utilizado para el trabajo práctico cuenta con 9 archivos de consulta `.sql`. Se le ha asignado a cada uno un número en el nombre para señalizar el orden de ejecución de los mismos:
 
 Antes de la ejecución de cada script, es necesario constatar la conexión a la base de datos. En nuestro caso, la misma se encuentra desplegada como servicio en Azure bajo el dominio `ticketera.database.windows.net`:
 
