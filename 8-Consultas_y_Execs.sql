@@ -16,16 +16,36 @@ EXEC sp_crear_ticket
     @Estado = 'Abierto';
 
 ----------------------------------------------------------------------
--- 3- CONSULTA VISTA HISTORIAL FILTRADA POR ClienteID = 101
+-- 3- CONSULTA VISTA HISTORIAL FILTRADA POR TicketID = 101
 ----------------------------------------------------------------------
 
 use soporte_ticketera
 
 SELECT * FROM dbo.historial
-WHERE ClienteID = 101;
+WHERE TicketID = 101;
 
 ----------------------------------------------------------------------
+-- 4- EJECUCION STORED PROCEDURE PARA CERRAR TicketID = 101
+----------------------------------------------------------------------
 
+use soporte_ticketera;
+
+EXEC dbo.sp_actualizar_estado_ticket 
+    @TicketID = 101, 
+    @Estado = 'Cerrado';
+
+
+----------------------------------------------------------------------
+-- 5- CONSULTA VISTA HISTORIAL FILTRADA POR TicketID = 101
+----------------------------------------------------------------------
+
+use soporte_ticketera
+
+SELECT * FROM dbo.historial
+WHERE TicketID = 101;
+
+
+----------------------------------------------------------------------
 
 
 ----------------------------------------------------------------------
@@ -45,14 +65,6 @@ WHERE TicketID = 10;
 ----------------------------------------------------------------------
 -- OTRAS EJECUCIONES DE STORED PROCEDURE  (actualizar tickets, crear usuario, crear técnico )
 ----------------------------------------------------------------------
-
-use soporte_ticketera;
-
-EXEC dbo.sp_actualizar_estado_ticket 
-    @TicketID = 101, 
-    @Estado = 'Cerrado';
-
----
 
 use soporte_ticketera;
 

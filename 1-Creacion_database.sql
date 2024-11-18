@@ -4,11 +4,11 @@
 
 CREATE DATABASE soporte_ticketera;
 
-USE soporte_ticketera;
-
 ----------------------------------------------------------------------
 -- CREACION TABLAS Clientes, Tecnicos, Tickets
 ----------------------------------------------------------------------
+
+USE soporte_ticketera;
 
 CREATE TABLE dbo.Clientes (
     ClienteID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,  

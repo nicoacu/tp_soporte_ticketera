@@ -48,7 +48,7 @@ END;
 -- STORED PROCEDURE PARA CREACION DE TICKET
 ---------------------------------------------------------------------------
 
-ALTER PROCEDURE sp_crear_ticket
+CREATE PROCEDURE sp_crear_ticket
     @ClienteID INT,
     @TecnicoID INT = NULL,
     @Descripcion VARCHAR(MAX),

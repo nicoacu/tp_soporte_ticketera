@@ -3,7 +3,7 @@
 ----------------------------------------------------------------------
 
 
-CREATE OR ALTER VIEW Historial AS
+CREATE OR ALTER VIEW dbo.historial AS
 SELECT 
     t.TicketID,
     t.FechaCreacion,
