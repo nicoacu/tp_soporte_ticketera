@@ -16,8 +16,6 @@ FROM
     dbo.Tickets t
 JOIN 
     dbo.Clientes c ON t.ClienteID = c.ClienteID
-LEFT JOIN 
-    dbo.Tecnicos te ON t.TecnicoID = te.TecnicoID;
 
 ----------------------------------------------------------------------
 -- VISTA REPORTES
@@ -32,8 +30,9 @@ SELECT
     c.Email AS ClienteEmail,
     c.Direccion AS ClienteDireccion,
     c.Telefono AS ClienteTelefono,
-    t.TecnicoID AS TecnicoNombre,
     t.Descripcion AS ProblemaReportado,
+    tec.TecnicoID AS TecnicoNombre,
+    tec.Disponibilidad AS Disponibilidad,
     t.Estado
 FROM 
     dbo.Tickets t
