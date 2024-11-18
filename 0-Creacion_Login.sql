@@ -1,8 +1,8 @@
-/*
+----------------------------------------------------------------------
+-- CREACION LOGINS
+----------------------------------------------------------------------
 
-Solo ejecutar la primera vez, ya que esto se crea en la base master
-
-*/
+--- Nota: Solo ejecutar la primera vez, ya que esto se crea en la base master
 
 USE master;
 

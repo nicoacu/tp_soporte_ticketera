@@ -1,6 +1,14 @@
+----------------------------------------------------------------------
+-- CREACION BASE soporte_ticketera
+----------------------------------------------------------------------
+
 CREATE DATABASE soporte_ticketera;
 
 USE soporte_ticketera;
+
+----------------------------------------------------------------------
+-- CREACION TABLAS Clientes, Tecnicos, Tickets
+----------------------------------------------------------------------
 
 CREATE TABLE dbo.Clientes (
     ClienteID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,  

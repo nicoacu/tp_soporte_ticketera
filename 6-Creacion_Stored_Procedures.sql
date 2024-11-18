@@ -48,7 +48,6 @@ END;
 -- STORED PROCEDURE PARA CREACION DE TICKET
 ---------------------------------------------------------------------------
 
-
 ALTER PROCEDURE sp_crear_ticket
     @ClienteID INT,
     @TecnicoID INT = NULL,
@@ -102,7 +101,9 @@ BEGIN
     END CATCH
 END;
 
---- Cliente creacion
+---------------------------------------------------------------------------
+-- STORED PROCEDURE PARA CREACION DE USUARIO FINAL
+---------------------------------------------------------------------------
 
 CREATE PROCEDURE sp_CreateEndUser
     @Nombre VARCHAR(255),
@@ -111,7 +112,7 @@ CREATE PROCEDURE sp_CreateEndUser
     @Email VARCHAR(255)
 AS
 BEGIN
-    -- Validate mandatory fields
+    -- Validar campos completos
     IF (@Nombre IS NULL OR @Direccion IS NULL OR @Telefono IS NULL OR @Email IS NULL)
     BEGIN
         RAISERROR ('All fields are required to create an end-user.', 16, 1);
@@ -121,10 +122,12 @@ BEGIN
     INSERT INTO dbo.Clientes (Nombre, Direccion, Telefono, Email, FechaRegistro)
     VALUES (@Nombre, @Direccion, @Telefono, @Email, GETDATE());
 
-    PRINT 'End-user created successfully.';
+    PRINT 'Cliente Creado Satisfactoriamente.';
 END;
 
---- Tecnico
+---------------------------------------------------------------------------
+-- STORED PROCEDURE PARA CREACION DE USUARIO TECNICO
+---------------------------------------------------------------------------
 
 CREATE PROCEDURE sp_CreateTechnician
     @Nombre VARCHAR(255),
@@ -132,7 +135,7 @@ CREATE PROCEDURE sp_CreateTechnician
     @Disponibilidad BIT
 AS
 BEGIN
-    -- Validate mandatory fields
+    -- Validar campos completos
     IF (@Nombre IS NULL OR @Disponibilidad IS NULL)
     BEGIN
         RAISERROR ('Name and availability are required to create a technician.', 16, 1);
@@ -142,5 +145,5 @@ BEGIN
     INSERT INTO dbo.Tecnicos (Nombre, Especialidad, Disponibilidad)
     VALUES (@Nombre, @Especialidad, @Disponibilidad);
 
-    PRINT 'Technician created successfully.';
+    PRINT 'Tecnico Creado Satisfactoriamente.';
 END;
