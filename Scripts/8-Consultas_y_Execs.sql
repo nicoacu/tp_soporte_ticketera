@@ -6,7 +6,7 @@ USE soporte_ticketera;
 SELECT * FROM dbo.historial;
 
 ----------------------------------------------------------------------
--- 2- EJECUCION STORED PROCEDURE PARA CREAR NUEVO TICKET. Aparece con ClienteID = 101
+-- 2- EJECUCION STORED PROCEDURE PARA CREAR NUEVO TICKET. Aparece con TicketID = 101
 ----------------------------------------------------------------------
 
 EXEC sp_crear_ticket 

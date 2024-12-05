@@ -31,7 +31,7 @@
 
 # Guía de Referencia del Repositorio:
 
-### Introducción:
+## Introducción:
 Este repositorio utilizado para el trabajo práctico cuenta con 9 archivos de consulta `.sql`. Se le ha asignado a cada uno un número en el nombre para señalizar el orden de ejecución de los mismos:
 
 Antes de la ejecución de cada script, es necesario constatar la conexión a la base de datos. En nuestro caso, la misma se encuentra desplegada como servicio en Azure bajo el dominio `ticketera.database.windows.net`:
@@ -41,7 +41,7 @@ Antes de la ejecución de cada script, es necesario constatar la conexión a la 
 
 ---
 
-### Orden de Scripts:
+## Orden de Scripts:
 
 `0-Creacion_Login.sql` : Se generan Logins para cada uno de los usuarios (integrantes del grupo). Los logins se generan con una cuenta de administrador sobre la base `master`.
 
@@ -94,7 +94,7 @@ De forma genérica, se planea realizar:
 
 - **Backups Diferenciales (cada 24 horas):** Solamente contempla los datos que se han cambiado desde el último backup de manera incremental. 
 
-*Ejemplo de uso: Si el último full backup fue un lunes, y el backup diferencial del jueves contendrá los cambios del martes miercoles y jueves.*
+*Ejemplo de uso: Si el último full backup fue un lunes, el backup diferencial del jueves contendrá los cambios del martes miercoles y jueves.*
 
 - **Backups de Logs de Transacciones (Cada 15 minutos):**  Se utilizan para realizar restores point-in-time, solo guarda el detalle de las transacciones que modifica datos, como INSERT, UPDATE y DELETE
 
