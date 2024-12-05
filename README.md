@@ -69,3 +69,51 @@ Antes de la ejecución de cada script, es necesario constatar la conexión a la 
 `7-Creacion_Vistas.sql` : Vistas para ejecutar consultas prediseñadas y optimizar el uso de recursos. Esto no se ejecuta a traves de un store procedure porque al hacer consultas no queremos exponenciar el tamaño de la base y consumir recursos.
 
 `8-Consultas_y_Execs.sql` : Queries demostrativos para realizar consultas a las vistas creadas, ejecuciones de stored procedures y resultados posteriores. 
+
+
+# Extra
+
+## Disaster Recovery
+
+Lo siguiente son planes relacionados a la recuperación ante desastres o problemas con la base de datos. 
+
+### Backup
+
+Teniendo en cuenta que en este ejercicio se optó por utilizar Azure para hostear el servicio de la base de datos, se contempla informarle a los clientes de las siguientes opciones con respecto al almacenamiento de backups en la infraestructura de la nube:
+
+- Storage de zona local/única
+- Storage redundante de zona
+- Storage redundante regional
+- Storage redundante regional/zonal
+
+> <i>A mayor redundancia, mayores costos.</i>
+
+De forma genérica, se planea realizar:
+
+- **Full backups cada semana:** Involucra una copia completa de toda la base de datos.
+
+- **Backups Diferenciales (cada 24 horas):** Solamente contempla los datos que se han cambiado desde el último backup de manera incremental. 
+
+*Ejemplo de uso: Si el último full backup fue un lunes, y el backup diferencial del jueves contendrá los cambios del martes miercoles y jueves.*
+
+- **Backups de Logs de Transacciones (Cada 15 minutos):**  Se utilizan para realizar restores point-in-time, solo guarda el detalle de las transacciones que modifica datos, como INSERT, UPDATE y DELETE
+
+*Ejemplo de uso: Si se requiere realizar un backup a 15 minutos atrás. La suma del Full backup, el Backup diferencial y los backups de las transacciones permiten recuperar el estado completo de una base a su punto más reciente.*
+
+> Nota: La periodicidad de dichos backups se debe estipular luego del analisis de las métricas explicadas en la sección **Restore**
+
+### Restore
+
+Dependiendo el negocio del cliente se busca definir el Recovery Point Objective (RPO) y Recovery Time Objective (RTO) del plan de restore
+
+> Recovery Point Objective (RPO): Cantidad máxima de datos que se pueden perder sin poner en riesgo la operación del negocio.
+> Recovery Time Objective (RTO): Tiempo máximo aceptable de downtime de servicios/base.
+
+En adición a estos factores, se debe determinar el Point-in-time Recovery (PITR) y la Retención de largo plazo (LTR)
+
+> Point-in-time Recovery (PITR): Backups que permiten recuperar data de una x cantidad de tiempo atrás. vinculado con el RPO.
+> Long-term retention (LTR): Tiempo que se planea guardar backups de bases de datos a largo plazo.
+
+Se plantea adicionalmente realizar testeos periodicos para validar que el backup y el proceso de restore funciona correctamente.
+
+[Documentacion adicional sobre Backups](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql)
