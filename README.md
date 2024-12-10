@@ -13,8 +13,8 @@
 
 # Diagrama Entidad Relacion (Actual)
 
-![(imagen)](https://i.imgur.com/w5ZME0G.png)
-<i>[link imagen](https://i.imgur.com/w5ZME0G.png)</i>
+![(imagen)](https://i.imgur.com/tOTKvp6.png)
+<i>[link imagen](https://i.imgur.com/tOTKvp6.png)</i>
 
 # Vistas
 
