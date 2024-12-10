@@ -1,0 +1,1 @@
+CREATE INDEX IDX_Tickets_Estado ON dbo.Tickets(Estado);
